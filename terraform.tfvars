@@ -1,6 +1,6 @@
-pod_number          = ""
-controller_password = ""
-firewall_password   = ""
+pod_number
+controller_password
+firewall_password
 
 # MCNA
 # Apply time: 8 minutes
