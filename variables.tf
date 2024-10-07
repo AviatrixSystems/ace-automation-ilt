@@ -10,6 +10,10 @@ variable "enable_firenet" {
   type        = bool
   default     = false
   nullable    = false
+  validation {
+    condition     = var.enable_firenet && !var.deploy_mcna ? false : true
+    error_message = "Variable deploy_mcna must be true for enable_firenet to be true"
+  }
 }
 
 variable "apply_segmentation" {
@@ -17,6 +21,10 @@ variable "apply_segmentation" {
   type        = bool
   default     = false
   nullable    = false
+  validation {
+    condition     = var.apply_segmentation && !var.deploy_mcna ? false : true
+    error_message = "Variable deploy_mcna must be true for apply_segmentation to be true"
+  }
 }
 
 variable "apply_policy" {
@@ -24,6 +32,14 @@ variable "apply_policy" {
   type        = bool
   default     = false
   nullable    = false
+  validation {
+    condition     = var.apply_policy && !var.deploy_mcna ? false : true
+    error_message = "Variable deploy_mcna must be true for apply_policy to be true"
+  }
+  validation {
+    condition     = var.apply_policy && !var.apply_segmentation ? false : true
+    error_message = "Variable apply_segmentation must be true for apply_policy to be true"
+  }
 }
 
 variable "enable_dcf" {
@@ -31,6 +47,10 @@ variable "enable_dcf" {
   type        = bool
   default     = false
   nullable    = false
+  validation {
+    condition     = var.enable_dcf && !var.deploy_mcna ? false : true
+    error_message = "Variable deploy_mcna must be true for enable_dcf to be true"
+  }
 }
 
 variable "enable_dcf_tag_rule" {
@@ -38,6 +58,14 @@ variable "enable_dcf_tag_rule" {
   type        = bool
   default     = false
   nullable    = false
+  validation {
+    condition     = var.enable_dcf_tag_rule && !var.deploy_mcna ? false : true
+    error_message = "Variable deploy_mcna must be true for enable_dcf_tag_rule to be true"
+  }
+  validation {
+    condition     = var.enable_dcf_tag_rule && !var.enable_dcf ? false : true
+    error_message = "Variable enable_dcf must be true for enable_dcf_tag_rule to be true"
+  }
 }
 
 variable "enable_sg_orchestration" {
@@ -45,6 +73,14 @@ variable "enable_sg_orchestration" {
   type        = bool
   default     = false
   nullable    = false
+  validation {
+    condition     = var.enable_sg_orchestration && !var.deploy_mcna ? false : true
+    error_message = "Variable deploy_mcna must be true for enable_sg_orchestration to be true"
+  }
+  validation {
+    condition     = var.enable_sg_orchestration && !var.enable_dcf ? false : true
+    error_message = "Variable enable_dcf must be true for enable_sg_orchestration to be true"
+  }
 }
 
 variable "apply_custom_spoke_routing" {
@@ -52,6 +88,10 @@ variable "apply_custom_spoke_routing" {
   type        = bool
   default     = false
   nullable    = false
+  validation {
+    condition     = var.apply_custom_spoke_routing && !var.deploy_mcna ? false : true
+    error_message = "Variable deploy_mcna must be true for apply_custom_spoke_routing to be true"
+  }
 }
 
 variable "pod_number" {
