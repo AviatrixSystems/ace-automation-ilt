@@ -126,7 +126,7 @@ resource "aviatrix_distributed_firewalling_policy_list" "dcf" {
       lo = 1433
     }
     logging = true
-    watch   = false
+    watch   = var.enable_sg_orchestration ? false : true
     src_smart_groups = [
       aviatrix_smart_group.aws_intra_vpc.uuid,
     ]
@@ -144,7 +144,7 @@ resource "aviatrix_distributed_firewalling_policy_list" "dcf" {
       lo = 1433
     }
     logging = true
-    watch   = false
+    watch   = var.enable_sg_orchestration ? false : true
     src_smart_groups = [
       aviatrix_smart_group.azure_intra_vpc.uuid,
     ]

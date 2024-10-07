@@ -27,7 +27,6 @@ module "segmentation" {
   azure_spoke_gw_name   = module.mcna[0].spoke_gw_aws.spoke_gateway.gw_name
   aws_spoke_gw_name     = module.mcna[0].spoke_gw_azure.spoke_gateway.gw_name
   apply_policy          = var.apply_policy
-
 }
 
 module "dcf" {
