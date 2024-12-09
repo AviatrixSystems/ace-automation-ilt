@@ -6,6 +6,7 @@ variable "backbone" {
     transit_region_name                          = string,
     transit_asn                                  = number,
     transit_account                              = string,
+    transit_instance_size                        = string,
     transit_name                                 = string,
     transit_az_support                           = optional(bool),
     firenet                                      = optional(bool),
