@@ -2,7 +2,7 @@
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/backbone/aviatrix/latest
 module "backbone" {
   source  = "terraform-aviatrix-modules/backbone/aviatrix"
-  version = "v1.2.2"
+  version = "v1.3.0"
   global_settings = {
     transit_ha_gw = false
   }
@@ -21,7 +21,7 @@ data "aviatrix_vpc" "spoke_azure" {
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-spoke/aviatrix/latest
 module "spoke_aws" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version = "1.6.3"
+  version = "1.7.0"
 
   cloud                            = "aws"
   name                             = "aws-spoke"
@@ -39,7 +39,7 @@ module "spoke_aws" {
 
 module "spoke_azure" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version = "1.6.3"
+  version = "1.7.0"
 
   cloud            = "azure"
   name             = "azure-spoke"
