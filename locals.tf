@@ -20,13 +20,14 @@ locals {
       firenet_keep_alive_via_lan_interface_enabled = true
     },
     azure = {
-      transit_name        = "transit-azure"
-      transit_account     = "azure-account"
-      transit_cloud       = "azure"
-      transit_cidr        = "10.2.0.0/23"
-      transit_region_name = "West US"
-      transit_asn         = 65102
-      transit_az_support  = false
+      transit_name          = "transit-azure"
+      transit_account       = "azure-account"
+      transit_cloud         = "azure"
+      transit_instance_size = "Standard_B2ms"
+      transit_cidr          = "10.2.0.0/23"
+      transit_region_name   = "West US"
+      transit_asn           = 65102
+      transit_az_support    = false
     },
   }
 }

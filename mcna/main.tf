@@ -49,7 +49,7 @@ module "spoke_azure" {
   az_support       = false
   region           = var.backbone.azure.transit_region_name
   account          = var.backbone.azure.transit_account
-  instance_size    = "Standard_B2ms"
+  instance_size    = var.backbone.azure.transit_instance_size
   transit_gw       = module.backbone.transit["azure"].transit_gateway.gw_name
   ha_gw            = false
   attached         = true
