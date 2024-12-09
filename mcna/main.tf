@@ -30,7 +30,7 @@ module "spoke_aws" {
   gw_subnet                        = data.aviatrix_vpc.spoke_aws.public_subnets[0].cidr
   region                           = var.backbone.aws.transit_region_name
   account                          = var.backbone.aws.transit_account
-  instance_size                    = "t3.medium"
+  instance_size                    = var.backbone.aws.transit_instance_size
   transit_gw                       = module.backbone.transit["aws"].transit_gateway.gw_name
   included_advertised_spoke_routes = var.apply_custom_spoke_routing ? "172.16.0.1/32, 10.1.2.0/24" : null
   ha_gw                            = false
