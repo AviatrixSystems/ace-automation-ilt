@@ -153,21 +153,6 @@ resource "aviatrix_distributed_firewalling_policy_list" "dcf" {
     ]
   }
 
-  policies {
-    name                     = "default-deny-all"
-    action                   = "DENY"
-    priority                 = 2147483646
-    protocol                 = "Any"
-    logging                  = true
-    watch                    = false
-    exclude_sg_orchestration = true
-    src_smart_groups = [
-      "def000ad-0000-0000-0000-000000000000" # Anywhere
-    ]
-    dst_smart_groups = [
-      "def000ad-0000-0000-0000-000000000000" # Anywhere
-    ]
-  }
   depends_on = [
     aviatrix_distributed_firewalling_config.enable
   ]
